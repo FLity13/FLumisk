@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle">
+        <corners android:radius="20dp" /> <!-- радиус скругления углов, здесь 20dp -->
+        <solid android:color="@color/cMainGreen" /> <!-- цвет фона -->
+    </shape>
+
+</selector>
