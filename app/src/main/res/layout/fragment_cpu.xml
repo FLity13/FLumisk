@@ -34,12 +34,12 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="16dp"
         android:text="Быстрая настройка"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/select_freq"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toTopOf="@+id/max_freq" />
 
     <Button
-        android:id="@+id/apply"
+        android:id="@+id/applyG"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -89,13 +89,13 @@
     <EditText
         android:id="@+id/max_freq"
         android:layout_width="wrap_content"
-        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/cMainBlue"
         android:ems="10"
         android:inputType="number"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -131,9 +131,9 @@
         android:layout_marginTop="2dp"
         android:text="MГц - 2 нуля"
         android:textColor="@color/Gray"
-        app:layout_constraintEnd_toEndOf="@+id/apply"
-        app:layout_constraintStart_toStartOf="@+id/apply"
-        app:layout_constraintTop_toBottomOf="@+id/apply" />
+        app:layout_constraintEnd_toEndOf="@+id/applyG"
+        app:layout_constraintStart_toStartOf="@+id/applyG"
+        app:layout_constraintTop_toBottomOf="@+id/applyG" />
 
     <TextView
         android:id="@+id/textView10"
@@ -141,8 +141,8 @@
         android:layout_height="wrap_content"
         android:text="кГц - 5 нулей"
         android:textColor="@color/Gray"
-        app:layout_constraintEnd_toEndOf="@+id/apply"
-        app:layout_constraintStart_toStartOf="@+id/apply"
+        app:layout_constraintEnd_toEndOf="@+id/applyG"
+        app:layout_constraintStart_toStartOf="@+id/applyG"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

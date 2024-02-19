@@ -5,4 +5,10 @@
     <color name="cMainBlue">#2B3C47</color>
     <color name="Gray">#6B6B6B</color>
     <color name="Red">#FF0000</color>
+    <color name="c24">#242424</color>
+    <color name="c40">#404040</color>
+    <color name="cMainGreen">#00C871</color>
+    <color name="cMainPink">#FF0026</color>
+    <color name="cYellow">#FFD600</color>
+    <color name="cMainText">#CD003A</color>
 </resources>

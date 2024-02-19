@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import com.flit.flumisk.R
 import com.flit.flumisk.gpu
 
@@ -25,31 +27,21 @@ class fragment_gpu : Fragment() {
         val cpu = gpu()
 
         val min_fr_cpu = 180000
-        var max_fr_cpu = 800000
-        val max_fr_const = 800000
 
         val tx_max = view.findViewById<EditText>(R.id.max_freq)
         val tx_min = view.findViewById<EditText>(R.id.min_freq)
 
-        val select_freq = view.findViewById<Button>(R.id.select_freq)
-        val apply = view.findViewById<Button>(R.id.apply)
-
-       select_freq.text = (max_fr_cpu/1000).toString() + " МГц"
-       select_freq.setOnClickListener() {
-           when(max_fr_cpu) {
-               min_fr_cpu * 5 -> max_fr_cpu = min_fr_cpu * 4
-               min_fr_cpu * 4 -> max_fr_cpu = min_fr_cpu * 3
-               min_fr_cpu * 3 -> max_fr_cpu = min_fr_cpu * 2
-               min_fr_cpu * 2 -> max_fr_cpu = min_fr_cpu * 1
-               min_fr_cpu * 1 -> max_fr_cpu = min_fr_cpu * 5
-           }
-
-           select_freq.text = (max_fr_cpu/1000).toString() + " МГц"
-           cpu.set_gpu_freq(max_fr_cpu.toString())
-       }
+        val apply = view.findViewById<Button>(R.id.applyG)
 
        apply.setOnClickListener() {
-           cpu.set_max_main_freq(tx_min.text.toString().toInt(), tx_max.text.toString().toInt())
+           val minFreqValue: Int = tx_min.text.toString().toInt() / 1000
+           val maxFreqValue: Int = tx_max.text.toString().toInt() / 1000
+           if(maxFreqValue >= minFreqValue) {
+               cpu.set_max_main_freq(minFreqValue, maxFreqValue)
+               Toast.makeText(requireContext(), "Установленны новыя зничения! \uD83D\uDFE2", Toast.LENGTH_LONG).show()
+           } else {
+               Toast.makeText(requireContext(), "Указано неверное значение! \uD83D\uDD34", Toast.LENGTH_LONG).show()
+           }
        }
 
     }

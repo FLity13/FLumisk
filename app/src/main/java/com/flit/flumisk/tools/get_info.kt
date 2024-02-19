@@ -1,9 +1,12 @@
 package com.flit.flumisk
 
+import android.widget.TextView
 import java.io.BufferedReader
 import com.stericson.RootShell.*
 import com.stericson.RootShell.execution.Command
 import com.stericson.RootTools.*
+import android.os.Handler
+import java.io.File
 import java.io.FileReader
 
 class get_info {
@@ -16,49 +19,33 @@ class get_info {
         }
     }
 
-//    fun get_max_freq(filePath: String): String {
-//        var firstWord = ""
-//        RootShell.getShell(true).use { shell ->
-//            val command = "cat $filePath | awk '{print \$1}'" // Команда для чтения первого слова из файла
-//            val result = shell.run(command) // Выполнение команды через RootShell
-//            if (result.isSuccessful) {
-//                firstWord = result.out.joinToString().trim() // Получение вывода команды
-//            } else {
-//                // Обработка ошибки или вывод информации об ошибке
-//            }
-//        }
-//        return firstWord
-//    }
+//    private val handler = Handler()
+//    private var value: Int = 0
+//    private var textView: TextView? = null
 //
-//    fun get_min_freq(filePath: String): String {
-//        var lastThreeChars = ""
-//        RootShell.getShell(true).use { shell ->
-//            val command = "cat $filePath | rev | cut -c 1-3 | rev" // Команда для чтения последних трех символов из файла
-//            val result = shell.run(command)
-//            if (result.isSuccessful) {
-//                lastThreeChars = result.out.joinToString().trim()
-//            } else {
-//                // Обработка ошибки или вывод информации об ошибке
-//            }
-//        }
-//        return lastThreeChars
-//    }
+//    fun startUpdatingValue(textViewToUpdate: TextView) {
+//        textView = textViewToUpdate
+//        handler.postDelayed(object : Runnable {
+//            override fun run() {
+//                // Чтение значения из файла (здесь нужно использовать RootShell)
 //
-//    fun get_min_freq(filePath: String): String {
-//        var lastThreeChars = ""
-//        BufferedReader(FileReader(filePath)).use { reader ->
-//            val line: String? = reader.readLine()
-//            line?.let {
-//                val length = it.length
-//                lastThreeChars = if (length >= 3) {
-//                    it.substring(length - 3)
-//                } else {
-//                    it
+//                val file = File("путь_к_файлу_с_значением") // Замените на путь к вашему файлу
+//                if (file.exists()) {
+//                    val content: String = file.readText().trim()
+//                    value = content.toInt()
 //                }
+//
+//                // Обновление значения в TextView
+//                textView?.text = "Значение: $value"
+//
+//                // Повторно запускаем через 2 секунды
+//                handler.postDelayed(this, 2000)
 //            }
-//        }
-//        return lastThreeChars
+//        }, 0)
 //    }
-
+//
+//    fun stopUpdatingValue() {
+//        handler.removeCallbacksAndMessages(null)
+//    }
 
 }

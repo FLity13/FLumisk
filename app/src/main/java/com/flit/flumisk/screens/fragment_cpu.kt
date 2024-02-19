@@ -7,12 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.SeekBar
-import android.widget.TextView
 import com.flit.flumisk.R
 import com.flit.flumisk.cpu
-import com.stericson.RootShell.RootShell
-import kotlinx.coroutines.selects.select
 
 class fragment_cpu : Fragment() {
 
@@ -37,7 +33,7 @@ class fragment_cpu : Fragment() {
         val tx_min = view.findViewById<EditText>(R.id.min_freq)
         
         val select_freq = view.findViewById<Button>(R.id.select_freq)
-        val apply = view.findViewById<Button>(R.id.apply)
+        val apply = view.findViewById<Button>(R.id.applyG)
 
         select_freq.text = (max_fr_cpu/1000).toString() + " МГц"
         select_freq.setOnClickListener() {

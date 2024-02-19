@@ -11,6 +11,7 @@ import com.flit.flumisk.screens.fragment_begin
 import com.flit.flumisk.screens.fragment_cpu
 import com.flit.flumisk.screens.fragment_displey
 import com.flit.flumisk.screens.fragment_gpu
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +39,23 @@ class MainActivity : AppCompatActivity() {
         val tx_gpu = findViewById<Button>(R.id.gpu)
 
         setNewFragment(fragment_begin())
+        val pashalka1 = "Будте причиной улыбок"
+        val pashalka2 = "Тили-тили трали-вали"
+        val pashalka3 = "Звезды сияют ярче в тёмные часы"
+        val pashalka4 = "By FLity :)"
+        fun generateRandomNumber(): Int {
+            return Random.nextInt(1, 5) // Генерируем случайное число от 1 до 3
+        }
+        val pashlk = generateRandomNumber()
+        if (pashlk == 1) {
+            fr_text.text = pashalka1
+        } else if(pashlk == 2) {
+            fr_text.text = pashalka2
+        } else if(pashlk == 3) {
+            fr_text.text = pashalka3
+        } else if(pashlk == 4) {
+            fr_text.text = pashalka4
+        }
 
         tx_cpu.setOnClickListener() {
             fr_text.text = "Настройки процессора"
@@ -45,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         tx_battaty.setOnClickListener() {
-            fr_text.text = "Об батареи"
+            fr_text.text = "B/0.1.1-st.Main"
             setNewFragment(fr_battary)
         }
 

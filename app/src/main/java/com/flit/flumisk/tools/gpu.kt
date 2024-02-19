@@ -3,8 +3,11 @@ package com.flit.flumisk
 import com.stericson.RootShell.*
 import com.stericson.RootShell.execution.Command
 import com.stericson.RootShell.execution.Shell
+import java.io.BufferedReader
 import java.io.File
 import java.io.IOException
+import java.io.InputStreamReader
+import com.stericson.RootTools.*
 
 class gpu {
 
@@ -55,6 +58,29 @@ class gpu {
             RootShell.getShell(true).add(commandMax)
             RootShell.getShell(true).add(commandMin)
         }
+    }
+
+    fun getLastThreeCharacters(inputText: String): String {
+        return if (inputText.length >= 3) {
+            inputText.takeLast(3)
+        } else {
+            inputText
+        }
+    }
+
+    fun readLastThreeCharactersOfFile(): Int? {
+        var maxFreq = ""
+        try {
+            val cmd = "cat /sys/kernel/gpu/gpu_freq_table"
+            val process = Runtime.getRuntime().exec(arrayOf("sh", "-c", cmd))
+            val reader = process.inputStream.bufferedReader()
+            maxFreq = reader.readLine()
+            reader.close()
+            process.destroy()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return getLastThreeCharacters(maxFreq).toInt()
     }
 
 }
